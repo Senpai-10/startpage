@@ -15,10 +15,10 @@ header {
     display: flex;
     align-items: center;
 }
-header .time {
+header #time {
     letter-spacing: -1px;
 }
-header .date {
+header #date {
     color: #dadada;
     margin-left: auto;
 }

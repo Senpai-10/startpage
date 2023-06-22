@@ -7,20 +7,38 @@
 </head>
 
 <body>
+    <script>
+        function updateDate() {
+            let header_time = document.getElementById('time');
+            let header_date = document.getElementById('date');
+
+            header_time.textContent = new Date().toLocaleString('en-US', {
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: true,
+            });
+
+            header_date.textContent = new Date().toLocaleDateString();
+        }
+
+        setInterval(updateDate, 1000);
+    </script>
     <main>
         <header>
-            <h2 class="time">
+            <h2 id="time">
                 <script>
                     document.write(
                         new Date().toLocaleString('en-US', {
                             hour: 'numeric',
                             minute: 'numeric',
+                            second: 'numeric',
                             hour12: true,
                         })
                     );
                 </script>
             </h2>
-            <p class="date">
+            <p id="date">
                 <script>
                     document.write(new Date().toLocaleDateString());
                 </script>
