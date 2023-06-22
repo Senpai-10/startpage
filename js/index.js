@@ -1,4 +1,4 @@
-new Section('General', true)
+new Section('General')
     .add('Youtube', 'https://www.youtube.com')
     .add('Wallhaven', 'https://wallhaven.cc')
     .add('Gmail', 'https://mail.google.com/mail')
