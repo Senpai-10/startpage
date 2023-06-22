@@ -4,18 +4,11 @@ class Section {
         this.list = [];
     }
 
-    #generate_favicon_url(url, size) {
-        let domain = (new URL(url));
-        let naked_domain = domain.hostname.replace("www.", "");
-
-        return `https://www.google.com/s2/favicons?sz=${size}&domain_url=${naked_domain}`
-    }
-
     add(name, url, desc) {
         const li = document.createElement('li');
         const a = document.createElement('a');
 
-        const icon = this.#generate_favicon_url(url, 16);
+        const favicon = generate_favicon_url(url, 16)
         const img = document.createElement('img')
 
         a.text = name;
@@ -27,8 +20,8 @@ class Section {
 
         // a.target = '_blank';
 
-        img.src = icon;
-        img.classList.add('icon');
+        img.src = favicon;
+        img.classList.add('favicon');
 
         li.appendChild(img);
         li.appendChild(a);
@@ -70,3 +63,11 @@ class Section {
         sections.appendChild(whitespace);
     }
 }
+
+function generate_favicon_url(url, size) {
+    let domain = (new URL(url));
+    let naked_domain = domain.hostname.replace("www.", "");
+
+    return `https://www.google.com/s2/favicons?sz=${size}&domain_url=${naked_domain}`
+}
+
