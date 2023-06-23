@@ -66,8 +66,13 @@ class Section {
 
 function generate_favicon_url(url, size) {
     let domain = (new URL(url));
-    let naked_domain = domain.hostname.replace("www.", "");
+    let tmp_list = domain.hostname.split('.');
 
-    return `https://www.google.com/s2/favicons?sz=${size}&domain_url=${naked_domain}`
+    if (tmp_list.length == 3) {
+        tmp_list.shift();
+    }
+
+    let domain_url = tmp_list.join('.');
+
+    return `https://www.google.com/s2/favicons?sz=${size}&domain_url=${domain_url}`;
 }
-
