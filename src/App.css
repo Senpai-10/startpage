@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 1.15rem;
+    font-family: 'Andika', sans-serif;
+    background-color: #272b35;
+}
+
+header {
+    display: flex;
+    align-items: center;
+}
+header #time {
+    letter-spacing: -1px;
+}
+header #date {
+    color: #dadada;
+    margin-left: auto;
+}
+
+main {
+    color: #dadada;
+    margin: 0 auto;
+    max-width: 70rem;
+}
+
+#sections {
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+    column-count: 3;
+    -moz-column-gap: 10px;
+    -webkit-column-gap: 10px;
+    column-gap: 10px;
+}
+
