@@ -15,10 +15,8 @@ header {
     display: flex;
     align-items: center;
 }
-header #time {
-    letter-spacing: -1px;
-}
-header #date {
+
+header #add {
     color: #dadada;
     margin-left: auto;
 }

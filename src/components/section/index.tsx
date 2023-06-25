@@ -4,7 +4,7 @@ function generate_favicon_url(url: string, size: number) {
     let domain = (new URL(url));
     let tmp_list = domain.hostname.split('.');
 
-    if (tmp_list.length == 3) {
+    if (tmp_list.length === 3) {
         tmp_list.shift();
     }
 

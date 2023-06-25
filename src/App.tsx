@@ -89,8 +89,11 @@ function App() {
         <div id='App'>
             <main>
                 <header>
-                    <h2 id='time'>time</h2>
-                    <p id='date'>date</p>
+                    <div id='import-export'>
+                        <button id="import">Import</button>
+                        <button id="export">Export</button>
+                    </div>
+                    <button id='add'>Add</button>
                 </header>
                 <div id='sections'>
                     {data.map((item) => {
