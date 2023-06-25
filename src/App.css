@@ -17,7 +17,6 @@ header {
 }
 
 header #add {
-    color: #dadada;
     margin-left: auto;
 }
 
@@ -36,3 +35,20 @@ main {
     column-gap: 10px;
 }
 
+button {
+    border: none;
+    /* top right bottom left */
+    padding: 4px 15px 4px 15px;
+    color: #fefff7;
+    background-color: #00a853;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#import {
+    margin-right: 4px;
+}
+
+#add {
+    background-color: #0072b8;
+}
