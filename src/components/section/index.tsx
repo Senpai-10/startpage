@@ -23,7 +23,7 @@ function Section(props: Props) {
         <div>
             <p className='section-name'>{props.name}</p>
             <ul>
-                {props.links.map((item, _) => {
+                {props.links.map((item) => {
                     return (<li>
                         <img className='favicon' src={generate_favicon_url(item.url, 16)} />
                         <a href={item.url}>{item.label}</a>
