@@ -8,12 +8,16 @@ html,
 body {
     font-size: 1.15rem;
     font-family: 'Andika', sans-serif;
-    background-color: #272b35;
+    background-color: #171619;
 }
 
 header {
     display: flex;
     align-items: center;
+}
+
+header #greeting {
+    letter-spacing: -2px;
 }
 
 header #add {
@@ -38,7 +42,7 @@ main {
 button {
     border: none;
     /* top right bottom left */
-    padding: 4px 15px 4px 15px;
+    padding: 8px 15px 8px 15px;
     color: #fefff7;
     background-color: #00a853;
     border-radius: 4px;
@@ -50,5 +54,9 @@ button {
 }
 
 #add {
-    background-color: #0072b8;
+    color: #78b4f3;
+    background-color: #1e1d20;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid #78b4f3;
 }

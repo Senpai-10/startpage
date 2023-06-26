@@ -89,10 +89,7 @@ function App() {
         <div id='App'>
             <main>
                 <header>
-                    <div id='import-export'>
-                        <button id="import">Import</button>
-                        <button id="export">Export</button>
-                    </div>
+                    <h2 id='greeting'>Welcome Back</h2>
                     <button id='add'>Add</button>
                 </header>
                 <div id='sections'>

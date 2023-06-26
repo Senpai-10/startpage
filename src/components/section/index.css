@@ -1,7 +1,7 @@
 .section {
     /* height: 600px; */
 
-    background-color: #2F333C;
+    background-color: #1e1d20;
 
     width: 100%;
     margin: 10px 0;
@@ -20,8 +20,8 @@ ul {
 }
 
 a {
-    color: #CAACF4;
-    border-bottom: 1px solid #CAACF4;
+    color: #78b4f3;
+    border-bottom: 1px solid #78b4f3;
     text-decoration: none;
 }
 
@@ -37,4 +37,3 @@ a {
 .favicon {
     padding-right: 10px;
 }
-
