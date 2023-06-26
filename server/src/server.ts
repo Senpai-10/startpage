@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from 'express'
+import cors from 'cors'
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -11,8 +12,6 @@ if (data_path == undefined) {
 
 const app: Express = express()
 const port = 3333
-
-import cors from 'cors'
 
 app.use(cors({ origin: 'http://localhost:3000' }))
 
