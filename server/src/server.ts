@@ -3,7 +3,20 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 dotenv.config()
 
-const data_path = process.env.DATA_PATH;
+interface Section {
+    uuid: string
+    name: string
+    links: Array<Link>
+}
+
+interface Link {
+    uuid: string
+    name: string
+    url: string
+    website_icon: string
+}
+
+const data_path = process.env.DATA_PATH
 
 if (data_path == undefined) {
     console.log(`Error: Add 'DATA_PATH' to '.env'!`)
