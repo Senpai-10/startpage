@@ -1,4 +1,13 @@
 import express, { Express, Request, Response } from 'express'
+import dotenv from 'dotenv'
+dotenv.config()
+
+const data_path = process.env.DATA_PATH;
+
+if (data_path == undefined) {
+    console.log(`Error: Add 'DATA_PATH' to '.env'!`)
+    process.exit(1)
+}
 
 const app: Express = express()
 const port = 3333
