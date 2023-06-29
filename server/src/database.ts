@@ -57,15 +57,15 @@ export class DB {
     }
 
     update(id: string, section: Section): RData {
-        let index = this.sections_list.findIndex((v) => v.id === id)
+        let index = this.find_index(id)
 
         if (index != -1) {
             this.sections_list[index] = section
             this.save()
-            return { msg: 'Section updated', data: section }
+            return { success_message: 'Section updated', data: section }
         }
 
-        return { msg: 'Section not found!' }
+        return { error_message: 'Section not found!' }
     }
 
     private find_index(id: string): number {
@@ -81,10 +81,10 @@ export class DB {
             this.sections_list.push(section)
             this.save()
 
-            return { msg: 'New section added', data: section }
+            return { success_message: 'New section added', data: section }
         }
 
-        return { msg: 'Section already exists' }
+        return { error_message: 'Section already exists' }
 
     }
 
