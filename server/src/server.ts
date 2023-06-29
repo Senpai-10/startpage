@@ -36,7 +36,6 @@ app.delete('/sections/:id', (req: Request, res: Response) => {
     let result = db.remove(id)
 
     if (result == true) {
-        db.save()
         res.json({ msg: 'Section removed' })
     } else {
         res.json({ msg: 'Section not found!' })
@@ -47,9 +46,16 @@ app.post('/sections', (req: Request, res: Response) => {
     let new_section: Section = req.body
 
     db.add(new_section)
-    db.save()
 
     res.json({ msg: 'New section added' })
+})
+
+app.put('/sections', (req: Request, res: Response) => {
+    let section: Section = req.body
+
+    db.update(section.id, section)
+
+    res.json({ msg: 'section updated' })
 })
 
 app.listen(port, () => {
