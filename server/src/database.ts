@@ -48,6 +48,7 @@ export class DB {
 
             if (section.id === id) {
                 this.sections_list.splice(i, 1)
+                this.save()
                 return true
             }
         }
@@ -55,8 +56,17 @@ export class DB {
         return false
     }
 
+    update(id: string, section: Section) {
+        let index = this.sections_list.findIndex((v) => v.id === id)
+
+        this.sections_list[index] = section
+
+        this.save()
+    }
+
     add(section: Section) {
         this.sections_list.push(section)
+        this.save()
     }
 
     save() {
