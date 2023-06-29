@@ -30,30 +30,30 @@ export class DB {
         return this.sections_list
     }
 
-    find(id: string): Section | undefined {
+    find(id: string): RData {
         for (let i = 0; i < this.sections_list.length; i++) {
             let section = this.sections_list[i]
 
             if (section.id === id) {
-                return section
+                return { success_message: 'Section found', data: section }
             }
         }
 
-        return undefined
+        return { error_message: 'Section not found' }
     }
 
-    remove(id: string): boolean {
+    remove(id: string): RData {
         for (let i = 0; i < this.sections_list.length; i++) {
             let section = this.sections_list[i]
 
             if (section.id === id) {
                 this.sections_list.splice(i, 1)
                 this.save()
-                return true
+                return { success_message: 'Section removed', data: section }
             }
         }
 
-        return false
+        return { error_message: 'Section not found' }
     }
 
     update(id: string, section: Section): RData {
@@ -85,7 +85,6 @@ export class DB {
         }
 
         return { error_message: 'Section already exists' }
-
     }
 
     save() {

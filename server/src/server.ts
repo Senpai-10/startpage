@@ -21,25 +21,17 @@ app.get('/sections', (_: Request, res: Response) => {
 app.get('/sections/:id', (req: Request, res: Response) => {
     let id = req.params.id
 
-    let result = db.find(id)
+    let rd = db.find(id)
 
-    if (result != undefined) {
-        res.json(result)
-    } else {
-        res.json({ msg: 'Section not found!' })
-    }
+    res.json(rd)
 })
 
 app.delete('/sections/:id', (req: Request, res: Response) => {
     let id = req.params.id
 
-    let result = db.remove(id)
+    let rd = db.remove(id)
 
-    if (result == true) {
-        res.json({ msg: 'Section removed' })
-    } else {
-        res.json({ msg: 'Section not found!' })
-    }
+    res.json(rd)
 })
 
 app.post('/sections', (req: Request, res: Response) => {
