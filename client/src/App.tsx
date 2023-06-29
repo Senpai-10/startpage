@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import { TSection } from './interfaces'
 import './App.css'
 import Section from './components/section'
 
@@ -85,6 +87,26 @@ const data = [
 ]
 
 function App() {
+    const [data, setData] = useState<[]>()
+
+    useEffect(() => {
+        // fetch data
+        const dataFetch = async () => {
+            const data = await (
+                await fetch(
+                    'http://localhost:3333/sections'
+                )
+            ).json()
+
+            // set state when the data received
+            setData(data)
+        }
+
+        dataFetch()
+    }, [])
+
+    if (!data) return <p>loading</p>;
+
     return (
         <div id='App'>
             <main>
@@ -93,8 +115,8 @@ function App() {
                     <button id='add'>Add</button>
                 </header>
                 <div id='sections'>
-                    {data.map((item) => {
-                        return <Section name={item.name} links={item.links} />
+                    {data.map((item: TSection) => {
+                        return <Section key={item.id} uuid={item.id} name={item.name} links={item.links} />
                     })}
                 </div>
             </main>
