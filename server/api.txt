@@ -1,6 +1,0 @@
-GET /sections -> return all sections
-GET /sections/:id -> return one section (Takes uuid of the section)
-
-POST /section -> create a new section (Takes Section in body)
-
-PUT /section -> update section (new data in body)

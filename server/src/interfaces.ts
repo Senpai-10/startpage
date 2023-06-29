@@ -12,6 +12,7 @@ export interface Link {
 }
 
 export interface RData {
-    msg: string,
+    success_message?: string,
+    error_message?: string,
     data?: Section
 }
