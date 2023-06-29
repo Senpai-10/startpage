@@ -34,9 +34,9 @@ app.delete('/sections/:id', (req: Request, res: Response) => {
     let id = req.params.id
 
     let result = db.remove(id)
-    db.save()
 
     if (result == true) {
+        db.save()
         res.json({ msg: 'Section removed' })
     } else {
         res.json({ msg: 'Section not found!' })
