@@ -24,4 +24,3 @@ new Section('Anime')
     .add('Gogoanime', 'https://gogoanime.cl')
     .add('Subsplease', 'https://subsplease.org')
     .create();
-

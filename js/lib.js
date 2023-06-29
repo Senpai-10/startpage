@@ -8,8 +8,8 @@ class Section {
         const li = document.createElement('li');
         const a = document.createElement('a');
 
-        const favicon = generate_favicon_url(url, 16)
-        const img = document.createElement('img')
+        const favicon = generate_favicon_url(url, 16);
+        const img = document.createElement('img');
 
         a.text = name;
         a.href = url;
@@ -26,16 +26,16 @@ class Section {
         li.appendChild(img);
         li.appendChild(a);
 
-        this.list.push(li)
+        this.list.push(li);
 
-        return this
+        return this;
     }
 
     create() {
         const div = document.createElement('div');
         const ul = document.createElement('ul');
 
-        div.classList.add('section')
+        div.classList.add('section');
 
         if (this.list.length == 0) {
             div.classList.add('empty');
@@ -65,7 +65,7 @@ class Section {
 }
 
 function generate_favicon_url(url, size) {
-    let domain = (new URL(url));
+    let domain = new URL(url);
     let tmp_list = domain.hostname.split('.');
 
     if (tmp_list.length == 3) {
