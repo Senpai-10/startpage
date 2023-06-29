@@ -1,4 +1,4 @@
-import { Section } from './interfaces'
+import { Section, RData } from './interfaces'
 import editjsonfile from 'edit-json-file'
 import dotenv from 'dotenv'
 dotenv.config()
@@ -16,7 +16,7 @@ export class DB {
     public sections_list: Section[]
 
     constructor() {
-        this.key = "sections"
+        this.key = 'sections'
         this.config = editjsonfile(data_path!)
         this.sections_list = this.config.get(this.key)
     }
@@ -31,7 +31,7 @@ export class DB {
     }
 
     find(id: string): Section | undefined {
-        for (let i = 0; i<this.sections_list.length; i++) {
+        for (let i = 0; i < this.sections_list.length; i++) {
             let section = this.sections_list[i]
 
             if (section.id === id) {
@@ -43,7 +43,7 @@ export class DB {
     }
 
     remove(id: string): boolean {
-        for (let i = 0; i<this.sections_list.length; i++) {
+        for (let i = 0; i < this.sections_list.length; i++) {
             let section = this.sections_list[i]
 
             if (section.id === id) {
@@ -56,17 +56,23 @@ export class DB {
         return false
     }
 
-    update(id: string, section: Section) {
+    update(id: string, section: Section): RData {
         let index = this.sections_list.findIndex((v) => v.id === id)
 
-        this.sections_list[index] = section
+        if (index != -1) {
+            this.sections_list[index] = section
+            this.save()
+            return { msg: 'Section updated', data: section }
+        }
 
-        this.save()
+        return { msg: 'Section not found!' }
     }
 
-    add(section: Section) {
+    add(section: Section): RData {
         this.sections_list.push(section)
         this.save()
+
+        return { msg: 'New section added', data: section }
     }
 
     save() {

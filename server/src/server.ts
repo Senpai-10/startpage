@@ -45,17 +45,18 @@ app.delete('/sections/:id', (req: Request, res: Response) => {
 app.post('/sections', (req: Request, res: Response) => {
     let new_section: Section = req.body
 
-    db.add(new_section)
+    let rd = db.add(new_section)
 
-    res.json({ msg: 'New section added' })
+    res.json(rd)
 })
 
-app.put('/sections', (req: Request, res: Response) => {
+app.put('/sections/:id', (req: Request, res: Response) => {
+    let id = req.params.id
     let section: Section = req.body
 
-    db.update(section.id, section)
+    let rd = db.update(id, section)
 
-    res.json({ msg: 'section updated' })
+    res.json(rd)
 })
 
 app.listen(port, () => {

@@ -11,3 +11,7 @@ export interface Link {
     website_icon: string
 }
 
+export interface RData {
+    msg: string,
+    data?: Section
+}
