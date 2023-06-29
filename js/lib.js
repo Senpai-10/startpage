@@ -31,7 +31,7 @@ class Section {
         return this
     }
 
-    build() {
+    create() {
         const div = document.createElement('div');
         const ul = document.createElement('ul');
 
