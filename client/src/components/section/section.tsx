@@ -32,7 +32,7 @@ function Section(props: Props) {
             <ul>
                 {props.links.map((item) => {
                     return (
-                        <li key={item.id} data-uuid={item.id}>
+                        <li key={item.uuid} data-uuid={item.uuid}>
                             <img className='favicon' src={item.website_icon} />
                             <a href={item.url}>
                                 {item.name}

@@ -18,18 +18,18 @@ app.get('/sections', (_: Request, res: Response) => {
     res.json(secs)
 })
 
-app.get('/sections/:id', (req: Request, res: Response) => {
-    let id = req.params.id
+app.get('/sections/:uuid', (req: Request, res: Response) => {
+    let uuid = req.params.uuid
 
-    let rd = db.find(id)
+    let rd = db.find(uuid)
 
     res.json(rd)
 })
 
-app.delete('/sections/:id', (req: Request, res: Response) => {
-    let id = req.params.id
+app.delete('/sections/:uuid', (req: Request, res: Response) => {
+    let uuid = req.params.uuid
 
-    let rd = db.remove(id)
+    let rd = db.remove(uuid)
 
     res.json(rd)
 })
@@ -42,11 +42,11 @@ app.post('/sections', (req: Request, res: Response) => {
     res.json(rd)
 })
 
-app.put('/sections/:id', (req: Request, res: Response) => {
-    let id = req.params.id
+app.put('/sections/:uuid', (req: Request, res: Response) => {
+    let uuid = req.params.uuid
     let section: Section = req.body
 
-    let rd = db.update(id, section)
+    let rd = db.update(uuid, section)
 
     res.json(rd)
 })

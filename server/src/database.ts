@@ -30,11 +30,11 @@ export class DB {
         return this.sections_list
     }
 
-    find(id: string): RData {
+    find(uuid: string): RData {
         for (let i = 0; i < this.sections_list.length; i++) {
             let section = this.sections_list[i]
 
-            if (section.id === id) {
+            if (section.uuid === uuid) {
                 return { success_message: 'Section found', data: section }
             }
         }
@@ -42,11 +42,11 @@ export class DB {
         return { error_message: 'Section not found' }
     }
 
-    remove(id: string): RData {
+    remove(uuid: string): RData {
         for (let i = 0; i < this.sections_list.length; i++) {
             let section = this.sections_list[i]
 
-            if (section.id === id) {
+            if (section.uuid === uuid) {
                 this.sections_list.splice(i, 1)
                 this.save()
                 return { success_message: 'Section removed', data: section }
@@ -56,8 +56,8 @@ export class DB {
         return { error_message: 'Section not found' }
     }
 
-    update(id: string, section: Section): RData {
-        let index = this.find_index(id)
+    update(uuid: string, section: Section): RData {
+        let index = this.find_index(uuid)
 
         if (index != -1) {
             this.sections_list[index] = section
@@ -68,14 +68,14 @@ export class DB {
         return { error_message: 'Section not found!' }
     }
 
-    private find_index(id: string): number {
-        return this.sections_list.findIndex((v) => v.id === id)
+    private find_index(uuid: string): number {
+        return this.sections_list.findIndex((v) => v.uuid === uuid)
     }
 
     add(section: Section): RData {
-        let id = section.id
+        let uuid = section.uuid
 
-        let index = this.find_index(id)
+        let index = this.find_index(uuid)
 
         if (index === -1) {
             this.sections_list.push(section)

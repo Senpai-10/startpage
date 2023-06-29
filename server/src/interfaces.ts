@@ -1,11 +1,11 @@
 export interface Section {
-    id: string
+    uuid: string
     name: string
     links: Array<Link>
 }
 
 export interface Link {
-    id: string
+    uuid: string
     name: string
     url: string
     website_icon: string
