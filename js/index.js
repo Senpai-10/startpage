@@ -1,6 +1,7 @@
 new Section('General')
     .add('Youtube', 'https://www.youtube.com')
     .add('Wallhaven', 'https://wallhaven.cc')
+    .add('Excalidraw', 'https://excalidraw.com/')
     .add('Gmail', 'https://mail.google.com/mail')
     .add('Calendar', 'https://calendar.google.com')
     .create();
